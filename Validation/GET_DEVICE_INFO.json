@@ -1,0 +1,33 @@
+{ 
+    "vendor": "VNPT Technology",
+    "model": "180",
+    "version": "2.1.20",
+    "build_time": "2023-10-18 13:49:11",
+    "IP": "192.168.88.108",
+    "netmask": "255.255.255.0",
+    "gateway": "192.168.88.1",
+    "MAC": "a4:f4:c2:00:22:44",
+    "network_type": 1,
+    "SSID": "Mesh_ONEHome",
+    "UID": "VNTTB-000112-XWMSP,TPZQAW",
+    "timezone": 7,
+    "sd_card": {
+        "plug": true,
+        "total": 14770,
+        "free": 4258 
+    },
+    "ptz_support": 1,
+    "storage_mode": 0,
+    "record_quality": 0,
+    "flip": false,
+    "audio_codec": 1,
+    "video_codec": 0,
+    "speaker_volume": 78,
+    "capture_volume": 95,
+    "human_detection": true,
+    "human_tracking": false,
+    "sound_detection": false,
+    "set_wifi": true,
+    "noti_md": true,
+    "status": 0 
+}

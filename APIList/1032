@@ -1,0 +1,8 @@
+{
+     "DHCP": true,
+     "ipaddr": "",
+     "gateway": "",
+     "netmask": "",
+     "dns1": "",
+     "dns2": ""
+}
