@@ -1,7 +1,7 @@
 #version: 1.0.1
 *** Settings ***
-Library      Test_API.py
-Variables    Msg_API.py
+Library      ../Libs/Test_API.py
+Variables    ../Libs/Msg_API.py
 Resource     ../Validation/val_list.txt
 *** Variables ***
 ${NULL}  

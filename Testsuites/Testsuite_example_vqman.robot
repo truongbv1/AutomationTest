@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    Libs/Testscript.robot
+Resource    ../Libs/Testscript.robot
 # Resource    Validation/val_list.txt
 *** Test Cases ***
 
