@@ -424,14 +424,16 @@ class TestExecutor:
             if test_mode == 0:
                 args = processes[0].get("args")
                 arg_file = list_argument_files[0]
-                with open(arg_file, 'ab') as out_file:
+                # with open(arg_file, 'ab') as out_file:
+                with open(arg_file, 'a') as out_file:
                     for arg_index, arg in enumerate(args):
                         out_file.write("--variable {}_ARGS_{}:{}\n".format(test_case_name, str(arg_index + 1), arg))
             else:
                 for index, p in enumerate(processes):
                     args = p.get("args")
                     arg_file = list_argument_files[index]
-                    with open(arg_file, 'ab') as out_file:
+                    # with open(arg_file, 'ab') as out_file:
+                    with open(arg_file, 'a') as out_file:
                         for arg_index, arg in enumerate(args):
                             out_file.write("--variable {}_ARGS_{}:{}\n".format(test_case_name, str(arg_index + 1), arg))
 
@@ -444,7 +446,8 @@ class TestExecutor:
             try:
                 device_id = list_device_id[index]
                 port_in = str(PORT_IN + index)
-                with open(file_name, 'ab') as out_file:
+                # with open(file_name, 'ab') as out_file:
+                with open(file_name, 'a') as out_file:
                     out_file.write("--variable DEVICE_NAME:{}\n".format(device_id)) 
                     out_file.write("--variable APPIUM_REMOTE_PORT:{}\n".format(port_in))
             except IndexError:
@@ -465,7 +468,8 @@ class TestExecutor:
                 testcase_run_id = processes[0].get("testCaseRunId")
                 args = processes[0].get("args")
                 arg_file = list_argument_files[0]
-                with open(arg_file, 'ab') as out_file:
+                # with open(arg_file, 'ab') as out_file:
+                with open(arg_file, 'a') as out_file:
                     out_file.write("--variable {}_TC_RUN_ID:{}\n".format(testcase_name, testcase_run_id))
                     for arg_index, arg in enumerate(args):
                         out_file.write("--variable {}_ARGS_{}:{}\n".format(testcase_name, str(arg_index + 1), arg))
@@ -479,7 +483,8 @@ class TestExecutor:
                         return
                     arg_file = list_argument_files[argument_file_index]
                     argument_file_index += 1
-                    with open(arg_file, 'ab') as out_file:
+                    # with open(arg_file, 'ab') as out_file:
+                    with open(arg_file, 'a') as out_file:
                         out_file.write("--variable {}_TC_RUN_ID:{}\n".format(testcase_name, testcase_run_id))
                         for arg_index, arg in enumerate(args):
                             out_file.write("--variable {}_ARGS_{}:{}\n".format(testcase_name, str(arg_index + 1), arg))
