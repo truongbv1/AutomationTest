@@ -1,4 +1,4 @@
-from PPCS_API import PPCS_API
+from PPCS_API import PPCSAPI
 from Handle_API import DEVICE_INFO, WIFI, RECORD
 from Msg_API import Msg_API
 import logging
@@ -23,8 +23,8 @@ ERROR_TESTAPI_TEST_CASE = -1102
 
 
 
-P2P_LIB_DLL_PATH     = "Libs/PPCS_API.dll"
-P2P_LIB_SO_PATH      = "Libs/PPCS_API.so"
+P2P_LIB_DLL_PATH     = "Libs/LIB_PPCS_API.dll"
+P2P_LIB_SO_PATH      = "Libs/LIB_PPCS_API.so"
 CONFIGS_PATH         = "Configs/configs.json"
 MSG_API_FILE         = "APIList"
 VAL_API_FILE         = "Validation"
@@ -34,7 +34,7 @@ class Test_API:
         p2p_lib_path = P2P_LIB_DLL_PATH
         if sys.platform == "linux":
             p2p_lib_path = P2P_LIB_SO_PATH
-        self.P2P = PPCS_API(p2p_lib_path)
+        self.P2P = PPCSAPI(p2p_lib_path)
         self.P2P.pathAPIList = MSG_API_FILE
         self.P2P_channel = 0
         self.MSGID = Msg_API()

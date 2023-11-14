@@ -60,7 +60,7 @@ logging.basicConfig(
 )
 log = logging.getLogger(__name__)
 ####
-class PPCS_API:
+class PPCSAPI:
     def __init__(self, libPath="PPCS_API.dll"):
         self.Lib = ctypes.cdll.LoadLibrary(libPath)
         self.InitString = ""
