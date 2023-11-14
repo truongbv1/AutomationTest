@@ -43,7 +43,7 @@ class Test_API:
         self.msg_login_str = json.dumps(self.msg_login_json)
         ret = self.parse_configs()
         if ret < 0:
-            log.error(f"setup configs failed!")
+            log.error("setup configs failed!")
             exit()
         log.info("Test API class init done")
 
