@@ -516,10 +516,11 @@ class TestExecutor:
         number_of_test_suite_files = self.getNumberOfTestSuiteFiles()
         total_processes = number_of_process * number_of_test_suite_files
 
-        pabot_command = "pabot --processes {} --verbose --pabotlib --pabotlibport {}".format(total_processes, pabotlib_port)
-        list_argument_files = self.getListArgumentFilesName()
-        for index, argument_file in enumerate(list_argument_files):
-            pabot_command += " --argumentfile" + str(index + 1) + " " + argument_file
+        # pabot_command = "pabot --processes {} --verbose --pabotlib --pabotlibport {}".format(total_processes, pabotlib_port)
+        # list_argument_files = self.getListArgumentFilesName()
+        # for index, argument_file in enumerate(list_argument_files):
+        #     pabot_command += " --argumentfile" + str(index + 1) + " " + argument_file
+        pabot_command = "pabot --processes {} --verbose".format(total_processes)
 
         # Get output directory
         output_dir = self.getOuputDir()
@@ -540,9 +541,9 @@ class TestExecutor:
         pabot_command += " -d {} -x {}".format(output_dir, xunit)
 
         # Get listener
-        listener = self.getListener()
-        if not listener == None:
-            pabot_command += " --listener {}:{}:{}".format(listener, self.sys_test_params, output_dir)
+        # listener = self.getListener()
+        # if not listener == None:
+        #     pabot_command += " --listener {}:{}:{}".format(listener, self.sys_test_params, output_dir)
 
          # Get TestSuite dir
         test_suite_dir = self.getTestSuiteDir()
@@ -561,7 +562,7 @@ class TestExecutor:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Test executor for Robotframework.")
 
-    parser.add_argument("-s", "--sys-test-params", metavar="", dest="sys_test_params", required=True, help="Name of SYS_TEST_PARAMS environment variable")
+    parser.add_argument("-s", "--sys-test-params", metavar="", dest="sys_test_params", required=False, help="Name of SYS_TEST_PARAMS environment variable")
     parser.add_argument("-a", "--arguments-file", metavar="", dest="arguments_file", help="Path to argument file")
     parser.add_argument("-o", "--output-dir", metavar="", dest="output_dir", help="Test output directory")
     parser.add_argument("-x", "--xunit", metavar="", dest="xunit", help="XUnit file name")
@@ -577,7 +578,7 @@ if __name__ == "__main__":
     testExecutor = TestExecutor(args)
 
     testExecutor.generateTestSuite()
-    testExecutor.generateArgumentFiles()
+    # testExecutor.generateArgumentFiles()
 
     # testExecutor.appendDeviceIds()
     # testExecutor.appendTestCaseRunId()
