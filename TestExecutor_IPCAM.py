@@ -645,11 +645,11 @@ if __name__ == "__main__":
     parser.add_argument("-l", "--listener", metavar="", dest="listener", help="Listener main python file")
 
     # camera argument
-    parser.add_argument("-cn", "--camera-name", metavar="", dest="cam_name", required=True, help="Name of Camera, config camera selected")
-    parser.add_argument("-cu", "--camera-username", metavar="", dest="cam_username", required=True, help="username login to camera")
-    parser.add_argument("-cp", "--camera-password", metavar="", dest="cam_password", required=True, help="password login to camera")
-    parser.add_argument("-cd", "--camera-device-id", metavar="", dest="cam_device_id", required=True, help="device id of camera, short string ex. VNTTB-000001-AAAAA")
-    parser.add_argument("-ci", "--camera-initstring-p2p", metavar="", dest="cam_initstr_p2p", required=False, help="init string for p2p")
+    parser.add_argument("-cn", "--camera-name", metavar="", dest="cam_name", type=str, default="", required=True, help="Name of Camera, config camera selected")
+    parser.add_argument("-cu", "--camera-username", metavar="", dest="cam_username", type=str, default="", required=True, help="username login to camera")
+    parser.add_argument("-cp", "--camera-password", metavar="", dest="cam_password", type=str, default="", required=True, help="password login to camera")
+    parser.add_argument("-cd", "--camera-device-id", metavar="", dest="cam_device_id", type=str, default="", required=True, help="device id of camera, short string ex. VNTTB-000001-AAAAA")
+    parser.add_argument("-ci", "--camera-initstring-p2p", metavar="", dest="cam_initstr_p2p", type=str, default="", required=False, help="init string for p2p")
 
     args = parser.parse_args()
 
