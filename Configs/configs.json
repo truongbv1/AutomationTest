@@ -1,15 +1,15 @@
 {
-    "select_config": "HVIF03",
-    "HVIF03": {
+    "select_config": "HVIP03",
+    "Default": {
+        "login_usr": "admin",
+        "login_pwd": "vnpt@123",
+        "p2p_did": "VNTTB-000001-ABCDE",
+        "p2p_init_str": "EBGFFBBNKGJEGIJCEDHJFEEMHKNADCJIGGBNBDCAAGNGKGOMDKBDHNOMCFKNNNLAFKMBOEDHPLJDAJCHNDJJIPEKMHPGAMHOBKGICGAHIJOABFGNBJAIOMIJDMILEBCDFBFD:vnptT@12"
+    },
+    "HVIP03": {
         "login_usr": "admin",
         "login_pwd": "sEcl6OB4",
         "p2p_did": "VNTTB-000112-XWMSP",
         "p2p_init_str": "EBGFFBBNKGJEGIJCEDHJFEEMHKNADCJIGGBNBDCAAGNGKGOMDKBDHNOMCFKNNNLAFKMBOEDHPLJDAJCHNDJJIPEKMHPGAMHOBKGICGAHIJOABFGNBJAIOMIJDMILEBCDFBFD:vnptT@12"
-    },
-    "Example": {
-        "login_usr": "admin",
-        "login_pwd": "vnpt@123",
-        "p2p_did": "VNTTB-000112-XWMSP",
-        "p2p_init_str": "EBGFFBBNKGJEGIJCEDHJFEEMHKNADCJIGGBNBDCAAGNGKGOMDKBDHNOMCFKNNNLAFKMBOEDHPLJDAJCHNDJJIPEKMHPGAMHOBKGICGAHIJOABFGNBJAIOMIJDMILEBCDFBFD:vnptT@12"
-    }
+    }    
 }

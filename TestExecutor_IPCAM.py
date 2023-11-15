@@ -6,6 +6,8 @@ import shutil
 import paramiko
 import subprocess
 
+import json
+
 ARG_FILE_PREFIX = "argumentfile"
 PORT_IN = 7000
 PORT_OUT = 7100
@@ -561,6 +563,73 @@ class TestExecutor:
         subprocess.call(pabot_command, shell=True)
 
 
+#################################################################################################
+class IPCamera():
+    def __init__(self, args):
+        self.cam_name = args.cam_name
+        self.cam_username = args.cam_username
+        self.cam_password = args.cam_password
+        self.cam_device_id = args.cam_device_id
+        self.cam_initstr_p2p = args.cam_initstr_p2p
+
+        self.path_camera_cfg = "Configs/configs.json"
+        self.data_cfg = None
+        # pass
+
+        # Logger
+        self.logger = logging.getLogger(__name__)
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter('%(asctime)s - %(funcName)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        self.logger.addHandler(handler)
+        self.logger.setLevel(logging.INFO)
+
+    def set_config(self):
+        try:
+            f = open (self.path_camera_cfg, "r")
+            data = f.read()
+            f.close()
+
+            self.data_cfg = json.loads(data)
+        except:
+            self.logger.error(f"config faied: {self.path_camera_cfg}!")
+            return -1
+        
+        check_input = 0
+        if self.cam_name == "":
+            check_input = -1
+        if self.cam_username == "":
+            check_input = -1
+        if self.cam_password == "":
+            check_input = -1
+        if self.cam_device_id == "":
+            check_input = -1
+        
+        if check_input:
+            self.logger.error(f"input parameters of camera is null!")
+            return -1
+        
+        if self.cam_name not in self.data_cfg:
+            self.data_cfg[self.cam_name] = self.data_cfg["Default"]
+            self.logger.info(f"Config camera '{self.cam_name}' not exist, add new cfg for: {self.cam_name}")
+
+        self.data_cfg[self.cam_name]["login_usr"] = self.cam_username
+        self.data_cfg[self.cam_name]["login_pwd"] = self.cam_password
+        self.data_cfg[self.cam_name]["p2p_did"] = self.cam_device_id
+        if self.cam_initstr_p2p != "":
+            self.data_cfg[self.cam_name]["p2p_init_str"] = self.cam_initstr_p2p
+
+        self.data_cfg["select_config"] = self.cam_name
+
+        with open(self.path_camera_cfg, "w") as outfile:
+            json.dump(self.data_cfg, outfile)
+
+        self.logger.info(f"Config camera {self.cam_name} done:\n {self.data_cfg}")
+        return 0
+#############################################################################################################
+
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Test executor for Robotframework.")
 
@@ -575,21 +644,23 @@ if __name__ == "__main__":
     parser.add_argument("-rp", "--remote-pc-password", metavar="", dest="remote_pc_password", required=False, help="Remote Test Control PC password")
     parser.add_argument("-l", "--listener", metavar="", dest="listener", help="Listener main python file")
 
+    # camera argument
+    parser.add_argument("-cn", "--camera-name", metavar="", dest="cam_name", required=True, help="Name of Camera, config camera selected")
+    parser.add_argument("-cu", "--camera-username", metavar="", dest="cam_username", required=True, help="username login to camera")
+    parser.add_argument("-cp", "--camera-password", metavar="", dest="cam_password", required=True, help="password login to camera")
+    parser.add_argument("-cd", "--camera-device-id", metavar="", dest="cam_device_id", required=True, help="device id of camera, short string ex. VNTTB-000001-AAAAA")
+    parser.add_argument("-cp", "--camera-initstring-p2p", metavar="", dest="cam_initstr_p2p", required=False, help="init string for p2p")
+
     args = parser.parse_args()
 
+    camera = IPCamera(args)
+    ret = camera.set_config()
+    if ret < 0:
+        exit()
+
     testExecutor = TestExecutor(args)
-
     testExecutor.generateTestSuite()
-    # testExecutor.generateArgumentFiles()
-
-    # testExecutor.appendDeviceIds()
-    # testExecutor.appendTestCaseRunId()
-
-    # testExecutor.killAllRemoteAppiumServers()
-    # testExecutor.startRemoteAppiumServers()
-
     testExecutor.startPabot()
 
-    # testExecutor.closeSshClient()
 
     
