@@ -649,7 +649,7 @@ if __name__ == "__main__":
     parser.add_argument("-cu", "--camera-username", metavar="", dest="cam_username", required=True, help="username login to camera")
     parser.add_argument("-cp", "--camera-password", metavar="", dest="cam_password", required=True, help="password login to camera")
     parser.add_argument("-cd", "--camera-device-id", metavar="", dest="cam_device_id", required=True, help="device id of camera, short string ex. VNTTB-000001-AAAAA")
-    parser.add_argument("-cp", "--camera-initstring-p2p", metavar="", dest="cam_initstr_p2p", required=False, help="init string for p2p")
+    parser.add_argument("-ci", "--camera-initstring-p2p", metavar="", dest="cam_initstr_p2p", required=False, help="init string for p2p")
 
     args = parser.parse_args()
 
