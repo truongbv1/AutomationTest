@@ -34,7 +34,7 @@ class TestExecutor:
         self.logger.setLevel(logging.INFO)
 
         # Init SSH Client
-        self.initSshClient()        
+        # self.initSshClient()        
 
     def initSshClient(self):
         """ 
@@ -567,9 +567,9 @@ if __name__ == "__main__":
     parser.add_argument("-x", "--xunit", metavar="", dest="xunit", help="XUnit file name")
     parser.add_argument("-b", "--build-id", metavar="", dest="build_id", required=True, help="Build ID")
     parser.add_argument("-ts", "--test-script-dir", metavar="", dest="test_script_dir", help="Test Script directory path, MUST be absolute path")
-    parser.add_argument("-rh", "--remote-pc-host", metavar="", dest="remote_pc_host", required=True, help="Remote Test Control PC hostname")
+    parser.add_argument("-rh", "--remote-pc-host", metavar="", dest="remote_pc_host", required=False, help="Remote Test Control PC hostname")
     parser.add_argument("-ru", "--remote-pc-username", metavar="", dest="remote_pc_username", help="Remote Test Cotrol PC username")
-    parser.add_argument("-rp", "--remote-pc-password", metavar="", dest="remote_pc_password", required=True, help="Remote Test Control PC password")
+    parser.add_argument("-rp", "--remote-pc-password", metavar="", dest="remote_pc_password", required=False, help="Remote Test Control PC password")
     parser.add_argument("-l", "--listener", metavar="", dest="listener", help="Listener main python file")
 
     args = parser.parse_args()
