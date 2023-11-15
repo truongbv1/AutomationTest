@@ -577,7 +577,7 @@ if __name__ == "__main__":
     testExecutor = TestExecutor(args)
 
     testExecutor.generateTestSuite()
-    # testExecutor.generateArgumentFiles()
+    testExecutor.generateArgumentFiles()
 
     # testExecutor.appendDeviceIds()
     # testExecutor.appendTestCaseRunId()
