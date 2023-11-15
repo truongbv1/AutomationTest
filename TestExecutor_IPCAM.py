@@ -25,6 +25,8 @@ class TestExecutor:
         self.test_script_dir = args.test_script_dir
         self.listener = args.listener
 
+        self.list_argument_files = [] #empty
+
         # Logger
         self.logger = logging.getLogger(__name__)
         handler = logging.StreamHandler()
@@ -562,7 +564,7 @@ class TestExecutor:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Test executor for Robotframework.")
 
-    parser.add_argument("-s", "--sys-test-params", metavar="", dest="sys_test_params", required=False, help="Name of SYS_TEST_PARAMS environment variable")
+    parser.add_argument("-s", "--sys-test-params", metavar="", dest="sys_test_params", required=True, help="Name of SYS_TEST_PARAMS environment variable")
     parser.add_argument("-a", "--arguments-file", metavar="", dest="arguments_file", help="Path to argument file")
     parser.add_argument("-o", "--output-dir", metavar="", dest="output_dir", help="Test output directory")
     parser.add_argument("-x", "--xunit", metavar="", dest="xunit", help="XUnit file name")
