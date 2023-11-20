@@ -1,0 +1,12 @@
+{
+        "resolution": {
+                "width": 1280,
+                "height": 720
+        },
+        "region": {
+                "x": 0,
+                "y": 0,
+                "width": 3000,
+                "height": 3000
+        }        
+}
