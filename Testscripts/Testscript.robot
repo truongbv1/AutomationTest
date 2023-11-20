@@ -81,3 +81,17 @@ TEST_SET_DEMO
     ...    ${subMsgID}
     ...    ${timeout}
     Should Be True    ${ret} >= 0
+
+TEST_SET_FAIL
+    [Arguments]
+    ...    ${name}=${NULL}
+    ...    ${msgID}=1050
+    ...    ${subMsgID}=${NULL}
+    ...    ${timeout}=3000
+  
+    ${ret} =    TEST_CASE_SET
+    ...    ${name}
+    ...    ${msgID}
+    ...    ${subMsgID}
+    ...    ${timeout}
+    Should Be True    ${ret} < 0
