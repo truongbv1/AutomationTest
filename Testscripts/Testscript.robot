@@ -42,11 +42,11 @@ TEST_SET
 TEST_RECORD
     [Arguments]
     ...    ${name}=${NULL}
-    ...    ${testType}="GET"
-    ...    ${recordMode}="ALWAYS"
+    ...    ${testType}=GET
+    ...    ${recordMode}=ALWAYS
     ...    ${duration}=1
-    ...    ${startTime}="00:00"
-    ...    ${endTime}="23:59"
+    ...    ${startTime}=00:00
+    ...    ${endTime}=23:59
     ...    ${checkFlag}=0
     ...    ${msgID}=-1
     ...    ${subMsgID}=${NULL}
