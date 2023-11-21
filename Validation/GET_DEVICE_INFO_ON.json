@@ -1,7 +1,7 @@
 { 
     "vendor": "VNPT Technology",
     "model": "178",
-    "version": "2.10.73",
+    "version": "2.0.73",
     "build_time": "2023-10-18 13:49:11",
     "IP": "192.168.88.108",
     "netmask": "255.255.255.0",
