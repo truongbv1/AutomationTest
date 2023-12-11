@@ -4,6 +4,7 @@
 * Configs: Chứa các cấu hình mô trường ban đầu trước khi test
 * Libs: chứ các thư viện P2P, API xử lý bản tin
 * Testsuites: chứa các testsuite
+* Testscript: chứa các testscript
 * Validation: chứa các file xác thực, để kiểm tra với các thông tin lấy về từ camera
 ## Install
 ```
