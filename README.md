@@ -7,7 +7,7 @@
 * testsuites: chứa các testsuite
 * testscripts: chứa các file script test, keywork
 * outputs: lưu các kết quả test
-## Install
+## Run
 ```
 # run local with python
 python test_run.py --build_id DIR_OUTPUT --config "CAM_NAME" -run_local
