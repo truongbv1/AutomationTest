@@ -1,7 +1,0 @@
-name,api,name_test_case,msg_set,msg_val
-Test,1110,Test1,"{
-    ""a"": 1,
-    ""b"":2
-}","{
-    ""a"": 1
-}"

@@ -15,7 +15,7 @@ python test_run.py --build_id DIR_OUTPUT --config "CAM_NAME" -run_local
 # run local with python + robot
 python test_run.py --build_id DIR_OUTPUT --config "CAM_NAME" -run_local -run_robot
 
-# 
+# run with vqman 
 python test_run.py --sys-test-params SYS_TEST_PARAMS --build_id ${BUILD_ID} --config ${CAM_NAME} -run_robot
 ```
 
