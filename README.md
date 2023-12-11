@@ -1,40 +1,27 @@
 # AUTOMATION TEST
+* version: v102
 ## Structure
-* APIList: Danh sách các file bản tin cấu hình camera
-* Configs: Chứa các cấu hình mô trường ban đầu trước khi test
-* Libs: chứ các thư viện P2P, API xử lý bản tin
-* Testsuites: chứa các testsuite
-* Testscript: chứa các testscript
-* Validation: chứa các file xác thực, để kiểm tra với các thông tin lấy về từ camera
+* testdatas: Danh sách các file cấu hình testcase camera
+* configs: Chứa các cấu hình mô trường ban đầu trước khi test
+* utils: chứ các thư viện P2P, API xử lý bản tin, dữ liệu
+* testsuites: chứa các testsuite
+* testscripts: chứa các file script test, keywork
+* outputs: lưu các kết quả test
 ## Install
 ```
-pip install robotframework
-```
-## RUN Testsuite
-```
-robot Testsuites\Testsuite_example.robot
+# run local with python
+python test_run.py --build_id DIR_OUTPUT --config "CAM_NAME" -run_local
 
-# or run with a test case
-robot -t CHECK_DEVICE_INFO Testsuites\Testsuite_example.robot
-```
-## RUN with Ride
-```
-python run_ride_app.py
-```
-<details><summary> <b>install ride</b> </summary>
+# run local with python + robot
+python test_run.py --build_id DIR_OUTPUT --config "CAM_NAME" -run_local -run_robot
 
+# 
+python test_run.py --sys-test-params SYS_TEST_PARAMS --build_id ${BUILD_ID} --config ${CAM_NAME} -run_robot
 ```
-pip install robotframework-ride
-```
-</details>
-
-
-
 
 <details><summary> <b>Contributors</b> </summary>
 
 * *TruongBV*
 * *EnMT*
-* *ManhPT*
 
 </details>

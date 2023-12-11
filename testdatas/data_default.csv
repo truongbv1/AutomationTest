@@ -1,0 +1,151 @@
+stt,testcase_id,type_info,type_cfg,msg_id,testcase_name,msg_set,msg_result,msg_val,result_expect,auto_run
+1,check_version_fw1,common,set,1050,TC1050_deviceinfo_check_version_fw1,"{
+    ""a"": 1,
+    ""b"":2
+}","{
+    ""a"": 1
+}","{
+    ""a"": 1
+}",FALSE,0
+2,check_version_fw,deviceinfo,get,1050,TC1050_deviceinfo_check_version_fw,"{
+}","{ 
+    ""vendor"": ""VNPT Technology"",
+    ""model"": ""180"",
+    ""version"": ""2.1.21"",
+    ""build_time"": ""2023-10-18 13:49:11"",
+    ""IP"": ""192.168.88.108"",
+    ""netmask"": ""255.255.255.0"",
+    ""gateway"": ""192.168.88.1"",
+    ""MAC"": ""a4:f4:c2:00:22:44"",
+    ""network_type"": 1,
+    ""SSID"": ""Mesh_ONEHome"",
+    ""UID"": ""VNTTB-000112-XWMSP,TPZQAW"",
+    ""timezone"": 7,
+    ""sd_card"": {
+        ""plug"": true,
+        ""total"": 14770,
+        ""free"": 4258 
+    },
+    ""ptz_support"": 1,
+    ""storage_mode"": 0,
+    ""record_quality"": 0,
+    ""flip"": false,
+    ""audio_codec"": 1,
+    ""video_codec"": 0,
+    ""speaker_volume"": 78,
+    ""capture_volume"": 95,
+    ""human_detection"": true,
+    ""human_tracking"": false,
+    ""sound_detection"": false,
+    ""set_wifi"": true,
+    ""noti_md"": true,
+    ""status"": 0 
+}","{
+      ""version"": ""2.1.20""
+}",TRUE,1
+3,check_md_on,motion,get,1063,TC1063_motion_check_md_on,"{
+}","{ 
+    ""motion_detect"": 
+    { 
+        ""md"": true, 
+        ""human_detect"": false, 
+        ""fulltime"": true, 
+        ""speaker"": false, 
+        ""resolution"": { 
+                ""width"": 1920, 
+                ""height"": 1080 
+        }, 
+        ""noti_freq"": 2, 
+        ""sensi"": 2, 
+        ""region"": { 
+            ""x"": 0, 
+            ""y"": 0, 
+            ""width"": 1920, 
+            ""height"": 1080 
+        }, 
+        ""schedules"": [ 
+            [ ""0:0"", ""23:59"" ] 
+        ], 
+        ""dayofweek"": [ 0, 1, 2, 3, 4, 5, 6 ] 
+    }, 
+    ""status"": 0 
+}","{ 
+    ""md"": true
+}",TRUE,0
+4,check_scan_wifi,wifi,get,1072,TC1072_wifi_check_scan_wifi,"{
+}","{ 
+    ""wifi"": [ 
+        { ""ssid"": ""FW_Wifi"", ""signal"": 4 }, 
+        { ""ssid"": ""IOT"", ""signal"": 4 }
+    ], 
+    ""status"": 0 
+}","{ 
+    ""ssid"": [
+        ""IOT"",            
+        ""Mesh_ONEHome"",
+        ""CAM_TEST""
+    ]
+}",TRUE,1
+4,set_record_mode_off,record,set,1010,TC1010_set_record_off,"{
+     ""record"": -1
+}",,,TRUE,0
+5,set_record_mode_always,record,set,1010,TC1010_set_record_mode_always,"{
+     ""record"": 0
+}",,"{
+    ""duration"": 2
+}",TRUE,0
+,set_record_mode_schedule,record,set,1010,TC1010_set_record_mode_schedule,"{
+     ""record"": 1
+}",,"{
+    ""schedules"": [
+        [""06:48"", ""06:57""], 
+        [""16:48"", ""18:57""]
+    ],
+    ""dayofweek"": [0, 1, 2, 5, 6]
+}",TRUE,0
+,set_record_mode_event,record,set,1010,TC1010_set_record_mode_event,"{
+     ""record"": 2
+}",,,TRUE,0
+,set_record_mode_fail,record,set,1010,TC1010_set_record_mode_fail,"{
+     ""record"": 3
+}",,,FALSE,0
+,set_record_quality_fhd,record,set,1064,TC1064_set_record_quality_fhd,"{
+     ""record_quality"": 0
+}",,,TRUE,0
+,set_record_quality_sd,record,set,1064,TC1064_set_record_quality_sd,"{
+     ""record_quality"": 1
+}",,,TRUE,0
+,set_record_quality_fail,record,set,1064,TC1064_set_record_quality_fail,"{
+     ""record_quality"": 5
+}",,,FALSE,0
+,get_record_mode_always,record,get,1059,TC1059_get_record_mode_always,"{
+}","{ 
+    ""record"": {
+        ""record_enable"": true,
+        ""record_mode"": 2,
+        ""schedules"": [ 
+            [ ""06:48"", ""06:57"" ], 
+            [ ""16:48"", ""18:57"" ] 
+        ],
+        ""dayofweek"": [ 0, 1, 2, 5, 6 ],
+        ""sdoverride"": true,
+        ""cloud"": false
+    },
+    ""status"": 0
+}","{
+     ""record_mode"": 0
+}",TRUE,0
+,get_record_mode_schedule,record,get,1059,TC1059_get_record_mode_schedule,"{
+}",,"{
+     ""record_mode"": 1
+}",TRUE,0
+,get_record_on,record,get,1059,TC1059_get_record_on,"{
+}",,"{
+     ""record_enable"": true
+}",TRUE,0
+,check_record_video_always,record,get_video,1059,TC1059_check_record_video_always,"{
+     ""record_mode"": 0
+}",,,TRUE,0
+,check_record_video_schedule,record,get_video,1059,TC1059_check_record_video_schedule,"{
+     ""record_mode"": 0
+}",,,TRUE,0
